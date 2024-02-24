@@ -1,6 +1,6 @@
 {
   "name": "setup-butler",
-  "version": "1.0.0-alpha",
+  "version": "1.0.0",
   "description": "Set up GitHub Actions workflow with itch.io butler",
   "author": "Mark <mark@remarkablemark.org>",
   "main": "src/index.ts",
