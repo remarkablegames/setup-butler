@@ -64,7 +64,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        version: [15.21.0, 14.14.0]
+        version: [LATEST, 15.21.0, 14.14.0]
     runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout repository
@@ -80,7 +80,7 @@ jobs:
         run: command -v butler
 
       - name: Check version
-        if: matrix.os != 'windows-latest'
+        if: matrix.os != 'windows-latest' && matrix.version != 'LATEST'
         run: |
           butler --version &> BUTLER_VERSION
           if [[ $(cat BUTLER_VERSION) != *'${{ matrix.version }}'* ]]; then
