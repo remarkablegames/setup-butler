@@ -15,7 +15,7 @@ jobs:
   setup-butler:
     runs-on: ubuntu-latest
     steps:
-      - name: Setup setup-butler
+      - name: Setup butler
         uses: remarkablegames/setup-butler@v1
 ```
 
@@ -31,7 +31,7 @@ See [action.yml](action.yml)
 
 ## Inputs
 
-### `cli-version`
+### `butler-version`
 
 **Optional**: The CLI [version](https://broth.itch.ovh/butler). Defaults to `LATEST`:
 
