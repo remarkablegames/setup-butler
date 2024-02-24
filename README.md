@@ -1,21 +1,21 @@
-# github-actions-setup-cli-template
+# setup-butler
 
-[![version](https://badgen.net/github/release/remarkablemark/github-actions-setup-cli-template)](https://github.com/remarkablemark/github-actions-setup-cli-template/releases)
-[![build](https://github.com/remarkablemark/github-actions-setup-cli-template/actions/workflows/build.yml/badge.svg)](https://github.com/remarkablemark/github-actions-setup-cli-template/actions/workflows/build.yml)
+[![version](https://badgen.net/github/release/remarkablegames/setup-butler)](https://github.com/remarkablegames/setup-butler/releases)
+[![build](https://github.com/remarkablegames/setup-butler/actions/workflows/build.yml/badge.svg)](https://github.com/remarkablegames/setup-butler/actions/workflows/build.yml)
 
-⚙️ GitHub Actions setup CLI template. Inspired by [github-developer/example-setup-gh](https://github.com/github-developer/example-setup-gh). Template from [remarkablemark/github-actions-typescript-template](https://github.com/remarkablemark/github-actions-typescript-template).
+🎩 Set up your GitHub Actions workflow with [itch.io](https://itch.io/) [butler](https://itch.io/docs/butler/).
 
 ## Quick Start
 
 ```yaml
-name: github-actions-setup-cli-template
+name: setup-butler
 on: push
 jobs:
-  github-actions-setup-cli-template:
+  setup-butler:
     runs-on: ubuntu-latest
     steps:
-      - name: Setup github-actions-setup-cli-template
-        uses: remarkablemark/github-actions-setup-cli-template@v1
+      - name: Setup setup-butler
+        uses: remarkablegames/setup-butler@v1
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ See [action.yml](action.yml)
 **Basic:**
 
 ```yaml
-- uses: remarkablemark/github-actions-setup-cli-template@v1
+- uses: remarkablegames/setup-butler@v1
 ```
 
 ## Inputs
@@ -35,7 +35,7 @@ See [action.yml](action.yml)
 **Optional**: The CLI [version](https://github.com/cli/cli/releases). Defaults to [`2.33.0`](https://github.com/cli/cli/releases/tag/v2.33.0):
 
 ```yaml
-- uses: remarkablemark/github-actions-setup-cli-template@v1
+- uses: remarkablegames/setup-butler@v1
   with:
     cli-version: 2.33.0
 ```
@@ -45,7 +45,7 @@ See [action.yml](action.yml)
 **Optional**: The htmlq CLI name. Defaults to `gh`:
 
 ```yaml
-- uses: remarkablemark/github-actions-setup-cli-template@v1
+- uses: remarkablegames/setup-butler@v1
   with:
     cli-name: gh
 ```

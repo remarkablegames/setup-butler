@@ -1,5 +1,5 @@
-name: github-actions-setup-cli-template
-description: GitHub Actions setup CLI template
+name: setup-butler
+description: Set up GitHub Actions workflow with itch.io butler
 author: remarkablemark
 inputs:
   cli-version:
