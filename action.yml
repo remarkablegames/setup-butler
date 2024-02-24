@@ -1,0 +1,18 @@
+name: github-actions-setup-cli-template
+description: GitHub Actions setup CLI template
+author: remarkablemark
+inputs:
+  cli-version:
+    description: CLI version
+    required: false
+    default: 2.33.0
+  cli-name:
+    description: CLI name
+    required: false
+    default: gh
+runs:
+  using: node20
+  main: dist/index.js
+branding:
+  icon: activity
+  color: gray-dark

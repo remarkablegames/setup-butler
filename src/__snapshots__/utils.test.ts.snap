@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getBinaryPath when OS is "darwin" returns CLI filepath 1`] = `"directory/name"`;
+
+exports[`getBinaryPath when OS is "linux" returns CLI filepath 1`] = `"directory/name"`;
+
+exports[`getBinaryPath when OS is "win32" returns CLI filepath 1`] = `"directory/name.exe"`;
+
+exports[`getDownloadObject when OS is "darwin" and arch is "arm" gets download object 1`] = `
+{
+  "binaryDirectory": "gh_2.27.0_macOS_arm/bin",
+  "url": "https://github.com/cli/cli/releases/download/v2.27.0/gh_2.27.0_macOS_arm.tar.gz",
+}
+`;
+
+exports[`getDownloadObject when OS is "darwin" and arch is "x32" gets download object 1`] = `
+{
+  "binaryDirectory": "gh_2.27.0_macOS_386/bin",
+  "url": "https://github.com/cli/cli/releases/download/v2.27.0/gh_2.27.0_macOS_386.tar.gz",
+}
+`;
+
+exports[`getDownloadObject when OS is "darwin" and arch is "x64" gets download object 1`] = `
+{
+  "binaryDirectory": "gh_2.27.0_macOS_amd64/bin",
+  "url": "https://github.com/cli/cli/releases/download/v2.27.0/gh_2.27.0_macOS_amd64.tar.gz",
+}
+`;
+
+exports[`getDownloadObject when OS is "linux" and arch is "arm" gets download object 1`] = `
+{
+  "binaryDirectory": "gh_2.27.0_linux_arm/bin",
+  "url": "https://github.com/cli/cli/releases/download/v2.27.0/gh_2.27.0_linux_arm.tar.gz",
+}
+`;
+
+exports[`getDownloadObject when OS is "linux" and arch is "x32" gets download object 1`] = `
+{
+  "binaryDirectory": "gh_2.27.0_linux_386/bin",
+  "url": "https://github.com/cli/cli/releases/download/v2.27.0/gh_2.27.0_linux_386.tar.gz",
+}
+`;
+
+exports[`getDownloadObject when OS is "linux" and arch is "x64" gets download object 1`] = `
+{
+  "binaryDirectory": "gh_2.27.0_linux_amd64/bin",
+  "url": "https://github.com/cli/cli/releases/download/v2.27.0/gh_2.27.0_linux_amd64.tar.gz",
+}
+`;
+
+exports[`getDownloadObject when OS is "win32" and arch is "arm" gets download object 1`] = `
+{
+  "binaryDirectory": "bin",
+  "url": "https://github.com/cli/cli/releases/download/v2.27.0/gh_2.27.0_windows_arm.zip",
+}
+`;
+
+exports[`getDownloadObject when OS is "win32" and arch is "x32" gets download object 1`] = `
+{
+  "binaryDirectory": "bin",
+  "url": "https://github.com/cli/cli/releases/download/v2.27.0/gh_2.27.0_windows_386.zip",
+}
+`;
+
+exports[`getDownloadObject when OS is "win32" and arch is "x64" gets download object 1`] = `
+{
+  "binaryDirectory": "bin",
+  "url": "https://github.com/cli/cli/releases/download/v2.27.0/gh_2.27.0_windows_amd64.zip",
+}
+`;
