@@ -2,6 +2,7 @@
 
 [![version](https://badgen.net/github/release/remarkablegames/setup-butler)](https://github.com/remarkablegames/setup-butler/releases)
 [![build](https://github.com/remarkablegames/setup-butler/actions/workflows/build.yml/badge.svg)](https://github.com/remarkablegames/setup-butler/actions/workflows/build.yml)
+[![codecov](https://codecov.io/gh/remarkablegames/setup-butler/graph/badge.svg?token=AAbBz3SIPn)](https://codecov.io/gh/remarkablegames/setup-butler)
 
 🎩 Set up your GitHub Actions workflow with [itch.io](https://itch.io/) [butler](https://itch.io/docs/butler/).
 
@@ -32,22 +33,22 @@ See [action.yml](action.yml)
 
 ### `cli-version`
 
-**Optional**: The CLI [version](https://github.com/cli/cli/releases). Defaults to [`2.33.0`](https://github.com/cli/cli/releases/tag/v2.33.0):
+**Optional**: The CLI [version](https://broth.itch.ovh/butler). Defaults to `LATEST`:
 
 ```yaml
 - uses: remarkablegames/setup-butler@v1
   with:
-    cli-version: 2.33.0
+    butler-version: LATEST
 ```
 
 ### `cli-name`
 
-**Optional**: The htmlq CLI name. Defaults to `gh`:
+**Optional**: The butler CLI name. Defaults to `butler`:
 
 ```yaml
 - uses: remarkablegames/setup-butler@v1
   with:
-    cli-name: gh
+    cli-name: butler
 ```
 
 ## Contributions

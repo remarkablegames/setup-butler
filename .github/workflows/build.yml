@@ -64,7 +64,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        version: [1.14.0, 2.27.0]
+        version: [15.21.0, 14.14.0]
     runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout repository
@@ -73,20 +73,21 @@ jobs:
       - name: Run action
         uses: ./
         with:
-          cli-version: ${{ matrix.version }}
-          cli-name: gh
+          butler-version: ${{ matrix.version }}
+          cli-name: butler
 
       - name: Locate binary
-        run: command -v gh
+        run: command -v butler
 
       - name: Check version
         if: matrix.os != 'windows-latest'
         run: |
-          if [[ $(gh --version) != *'${{ matrix.version }}'* ]]; then
+          butler --version &> BUTLER_VERSION
+          if [[ $(cat BUTLER_VERSION) != *'${{ matrix.version }}'* ]]; then
             echo 'Version does not match. See version below:'
-            gh --version
+            butler --version
             exit 1
           fi
 
       - name: Show help
-        run: gh --help
+        run: butler --help

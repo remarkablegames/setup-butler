@@ -1,2 +1,2 @@
-export const CLI_NAME = 'gh';
-export const VERSION = '2.33.0';
+export const CLI_NAME = 'butler';
+export const VERSION = 'LATEST';
