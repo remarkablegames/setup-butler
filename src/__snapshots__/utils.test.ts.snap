@@ -1,70 +1,31 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`getBinaryPath when OS is "darwin" returns CLI filepath 1`] = `"directory/name"`;
+exports[`getBinaryPath when platform is "darwin" returns CLI path 1`] = `"directory/name"`;
 
-exports[`getBinaryPath when OS is "linux" returns CLI filepath 1`] = `"directory/name"`;
+exports[`getBinaryPath when platform is "linux" returns CLI path 1`] = `"directory/name"`;
 
-exports[`getBinaryPath when OS is "win32" returns CLI filepath 1`] = `"directory/name.exe"`;
+exports[`getBinaryPath when platform is "win32" returns CLI path 1`] = `"directory/name.exe"`;
 
-exports[`getDownloadObject when OS is "darwin" and arch is "arm" gets download object 1`] = `
-{
-  "binaryDirectory": "gh_2.27.0_macOS_arm/bin",
-  "url": "https://github.com/cli/cli/releases/download/v2.27.0/gh_2.27.0_macOS_arm.tar.gz",
-}
-`;
+exports[`getDownloadUrl when platform is "darwin" and arch is "arm" returns download object 1`] = `"https://broth.itch.ovh/butler/darwin-386/1.2.3/archive/default"`;
 
-exports[`getDownloadObject when OS is "darwin" and arch is "x32" gets download object 1`] = `
-{
-  "binaryDirectory": "gh_2.27.0_macOS_386/bin",
-  "url": "https://github.com/cli/cli/releases/download/v2.27.0/gh_2.27.0_macOS_386.tar.gz",
-}
-`;
+exports[`getDownloadUrl when platform is "darwin" and arch is "arm64" returns download object 1`] = `"https://broth.itch.ovh/butler/darwin-amd64/1.2.3/archive/default"`;
 
-exports[`getDownloadObject when OS is "darwin" and arch is "x64" gets download object 1`] = `
-{
-  "binaryDirectory": "gh_2.27.0_macOS_amd64/bin",
-  "url": "https://github.com/cli/cli/releases/download/v2.27.0/gh_2.27.0_macOS_amd64.tar.gz",
-}
-`;
+exports[`getDownloadUrl when platform is "darwin" and arch is "x32" returns download object 1`] = `"https://broth.itch.ovh/butler/darwin-386/1.2.3/archive/default"`;
 
-exports[`getDownloadObject when OS is "linux" and arch is "arm" gets download object 1`] = `
-{
-  "binaryDirectory": "gh_2.27.0_linux_arm/bin",
-  "url": "https://github.com/cli/cli/releases/download/v2.27.0/gh_2.27.0_linux_arm.tar.gz",
-}
-`;
+exports[`getDownloadUrl when platform is "darwin" and arch is "x64" returns download object 1`] = `"https://broth.itch.ovh/butler/darwin-amd64/1.2.3/archive/default"`;
 
-exports[`getDownloadObject when OS is "linux" and arch is "x32" gets download object 1`] = `
-{
-  "binaryDirectory": "gh_2.27.0_linux_386/bin",
-  "url": "https://github.com/cli/cli/releases/download/v2.27.0/gh_2.27.0_linux_386.tar.gz",
-}
-`;
+exports[`getDownloadUrl when platform is "linux" and arch is "arm" returns download object 1`] = `"https://broth.itch.ovh/butler/linux-386/1.2.3/archive/default"`;
 
-exports[`getDownloadObject when OS is "linux" and arch is "x64" gets download object 1`] = `
-{
-  "binaryDirectory": "gh_2.27.0_linux_amd64/bin",
-  "url": "https://github.com/cli/cli/releases/download/v2.27.0/gh_2.27.0_linux_amd64.tar.gz",
-}
-`;
+exports[`getDownloadUrl when platform is "linux" and arch is "arm64" returns download object 1`] = `"https://broth.itch.ovh/butler/linux-amd64/1.2.3/archive/default"`;
 
-exports[`getDownloadObject when OS is "win32" and arch is "arm" gets download object 1`] = `
-{
-  "binaryDirectory": "bin",
-  "url": "https://github.com/cli/cli/releases/download/v2.27.0/gh_2.27.0_windows_arm.zip",
-}
-`;
+exports[`getDownloadUrl when platform is "linux" and arch is "x32" returns download object 1`] = `"https://broth.itch.ovh/butler/linux-386/1.2.3/archive/default"`;
 
-exports[`getDownloadObject when OS is "win32" and arch is "x32" gets download object 1`] = `
-{
-  "binaryDirectory": "bin",
-  "url": "https://github.com/cli/cli/releases/download/v2.27.0/gh_2.27.0_windows_386.zip",
-}
-`;
+exports[`getDownloadUrl when platform is "linux" and arch is "x64" returns download object 1`] = `"https://broth.itch.ovh/butler/linux-amd64/1.2.3/archive/default"`;
 
-exports[`getDownloadObject when OS is "win32" and arch is "x64" gets download object 1`] = `
-{
-  "binaryDirectory": "bin",
-  "url": "https://github.com/cli/cli/releases/download/v2.27.0/gh_2.27.0_windows_amd64.zip",
-}
-`;
+exports[`getDownloadUrl when platform is "win32" and arch is "arm" returns download object 1`] = `"https://broth.itch.ovh/butler/windows-386/1.2.3/archive/default"`;
+
+exports[`getDownloadUrl when platform is "win32" and arch is "arm64" returns download object 1`] = `"https://broth.itch.ovh/butler/windows-amd64/1.2.3/archive/default"`;
+
+exports[`getDownloadUrl when platform is "win32" and arch is "x32" returns download object 1`] = `"https://broth.itch.ovh/butler/windows-386/1.2.3/archive/default"`;
+
+exports[`getDownloadUrl when platform is "win32" and arch is "x64" returns download object 1`] = `"https://broth.itch.ovh/butler/windows-amd64/1.2.3/archive/default"`;

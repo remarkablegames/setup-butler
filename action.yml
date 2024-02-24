@@ -2,17 +2,17 @@ name: setup-butler
 description: Set up GitHub Actions workflow with itch.io butler
 author: remarkablemark
 inputs:
-  cli-version:
-    description: CLI version
+  butler-version:
+    description: butler version
     required: false
-    default: 2.33.0
+    default: LATEST
   cli-name:
     description: CLI name
     required: false
-    default: gh
+    default: butler
 runs:
   using: node20
   main: dist/index.js
 branding:
-  icon: activity
-  color: gray-dark
+  icon: archive
+  color: orange

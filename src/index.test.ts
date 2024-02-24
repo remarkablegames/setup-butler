@@ -15,26 +15,30 @@ const mockedExec = jest.mocked(exec);
 const mockedTc = jest.mocked(tc);
 const mockedOs = jest.mocked(os);
 
-beforeEach(() => {
-  jest.resetAllMocks();
-});
-
 const name = 'cli-name';
 const version = '1.2.3';
 
-describe.each(['darwin', 'win32', 'linux'])('when OS is %p', (os) => {
+const path = {
+  cli: 'path/to/cli',
+  zip: 'path/to/archive.zip',
+} as const;
+
+const platforms = ['darwin', 'linux', 'win32'] as const;
+
+afterEach(() => {
+  jest.resetAllMocks();
+});
+
+describe.each(platforms)('platform is %p', (platform) => {
   beforeEach(() => {
-    mockedOs.platform.mockReturnValueOnce(os as NodeJS.Platform);
-    mockedOs.arch.mockReturnValueOnce('arm64');
+    mockedOs.platform.mockReturnValue(platform);
+    mockedOs.arch.mockReturnValue('x64');
   });
 
-  it('downloads, extracts, and adds CLI in PATH', async () => {
-    const pathToTarball = 'path/to/tarball';
-    const pathToCLI = 'path/to/cli';
-
+  it('downloads, extracts, and adds CLI to PATH', async () => {
     mockedCore.getInput.mockImplementation((input) => {
       switch (input) {
-        case 'cli-version':
+        case 'butler-version':
           return version;
         case 'cli-name':
           return name;
@@ -43,34 +47,35 @@ describe.each(['darwin', 'win32', 'linux'])('when OS is %p', (os) => {
       }
     });
 
-    mockedTc.downloadTool.mockResolvedValueOnce(pathToTarball);
-    const extract = os === 'win32' ? mockedTc.extractZip : mockedTc.extractTar;
-    extract.mockResolvedValueOnce(pathToCLI);
+    mockedTc.downloadTool.mockResolvedValueOnce(path.zip);
+    mockedTc.extractZip.mockResolvedValueOnce(path.cli);
 
     await run();
 
     expect(mockedTc.downloadTool).toHaveBeenCalledWith(
-      expect.stringContaining(
-        `https://github.com/cli/cli/releases/download/v${version}/gh_${version}_`,
+      expect.stringMatching(
+        new RegExp(
+          `https://broth.itch.ovh/butler/[a-zA-Z0-9-]+/${version}/archive/default`,
+        ),
       ),
     );
 
-    expect(extract).toHaveBeenCalledWith(pathToTarball);
+    expect(mockedTc.extractZip).toHaveBeenCalledWith(path.zip);
 
     expect(mockedExec.exec).toHaveBeenCalledWith('mv', [
-      expect.stringContaining('/bin/gh'),
-      expect.stringContaining(`/bin/${name}`),
+      expect.stringContaining(`${path.cli}/butler`),
+      expect.stringContaining(`${path.cli}/${name}`),
     ]);
 
     expect(mockedTc.cacheFile).toHaveBeenCalledWith(
-      expect.stringContaining(`/bin/${name}`),
+      expect.stringContaining(`${path.cli}/${name}`),
       name,
       name,
       version,
     );
 
     expect(mockedCore.addPath).toHaveBeenCalledWith(
-      expect.stringContaining(pathToCLI),
+      expect.stringContaining(path.cli),
     );
   });
 });

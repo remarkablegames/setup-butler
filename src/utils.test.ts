@@ -1,45 +1,70 @@
 import os from 'os';
 
-import { getBinaryPath, getDownloadObject } from './utils';
+import { getBinaryPath, getDownloadUrl } from './utils';
 
 jest.mock('os');
 const mockedOs = jest.mocked(os);
 
 const platforms = ['darwin', 'linux', 'win32'] as const;
-const architectures = ['arm', 'x32', 'x64'] as const;
+const architectures = ['arm', 'arm64', 'x32', 'x64'] as const;
 
-const table = platforms.reduce(
-  (testSuites, os) => [
-    ...testSuites,
-    ...architectures.map((arch) => [os, arch] as [string, string]),
-  ],
-  [] as [string, string][],
-);
+describe('getDownloadUrl', () => {
+  const version = '1.2.3';
 
-describe('getDownloadObject', () => {
-  describe.each(table)('when OS is %p and arch is %p', (os, arch) => {
-    const version = '2.27.0';
+  const table = platforms.reduce(
+    (testSuites, os) => [
+      ...testSuites,
+      ...architectures.map((arch) => [os, arch] as [string, string]),
+    ],
+    [] as [string, string][],
+  );
 
+  beforeEach(() => {
+    jest.resetAllMocks();
+  });
+
+  describe.each(table)('when platform is %p and arch is %p', (os, arch) => {
     beforeEach(() => {
-      jest.resetAllMocks();
-      mockedOs.platform.mockReturnValueOnce(os as NodeJS.Platform);
-      mockedOs.arch.mockReturnValueOnce(arch);
+      mockedOs.platform.mockReturnValue(os as NodeJS.Platform);
+      mockedOs.arch.mockReturnValue(arch);
     });
 
-    it('gets download object', () => {
-      expect(getDownloadObject(version)).toMatchSnapshot();
+    it('returns download object', () => {
+      expect(getDownloadUrl(version)).toMatchSnapshot();
+    });
+  });
+
+  describe('error', () => {
+    const arch = 'ia32';
+
+    it(`throws error when architecture is "${arch}"`, () => {
+      mockedOs.arch.mockReturnValue(arch);
+      mockedOs.platform.mockReturnValue('linux');
+      expect(() => {
+        getDownloadUrl(version);
+      }).toThrow(`Unsupported arch: ${arch}`);
+    });
+
+    const platform = 'aix';
+
+    it(`throws error when platform is "${platform}"`, () => {
+      mockedOs.arch.mockReturnValue('x64');
+      mockedOs.platform.mockReturnValue(platform);
+      expect(() => {
+        getDownloadUrl(version);
+      }).toThrow(`Unsupported platform: ${platform}`);
     });
   });
 });
 
 describe('getBinaryPath', () => {
-  describe.each(platforms)('when OS is %p', (os) => {
+  describe.each(platforms)('when platform is %p', (os) => {
     beforeEach(() => {
       jest.resetAllMocks();
-      mockedOs.platform.mockReturnValueOnce(os);
+      mockedOs.platform.mockReturnValue(os);
     });
 
-    it('returns CLI filepath', () => {
+    it('returns CLI path', () => {
       const directory = 'directory';
       const name = 'name';
       expect(getBinaryPath(directory, name)).toMatchSnapshot();
