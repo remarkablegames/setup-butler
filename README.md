@@ -9,15 +9,23 @@
 ## Quick Start
 
 ```yaml
-name: setup-butler
+name: Upload to itch.io
 on: push
 jobs:
-  setup-butler:
+  itchio-upload:
     runs-on: ubuntu-latest
     steps:
       - name: Setup butler
         uses: remarkablegames/setup-butler@v1
+
+      - name: Upload to itch.io
+        # https://itch.io/docs/butler/pushing.html
+        run: butler push directory user/game:channel
+        env:
+          BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
 ```
+
+The `BUTLER_API_KEY` is your [itch.io API key](https://itch.io/user/settings/api-keys).
 
 ## Usage
 
@@ -43,13 +51,17 @@ See [action.yml](action.yml)
 
 ### `cli-name`
 
-**Optional**: The butler CLI name. Defaults to `butler`:
+**Optional**: The CLI name. Defaults to `butler`:
 
 ```yaml
 - uses: remarkablegames/setup-butler@v1
   with:
     cli-name: butler
 ```
+
+## Examples
+
+- [remarkablegames/inversion](https://github.com/remarkablegames/inversion/blob/master/.github/workflows/release-please.yml)
 
 ## Contributions
 
