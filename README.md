@@ -61,7 +61,8 @@ See [action.yml](action.yml)
 
 ## Examples
 
-- [remarkablegames/inversion](https://github.com/remarkablegames/inversion/blob/master/.github/workflows/release-please.yml)
+- [remarkablegames/phaser-template](https://github.com/remarkablegames/phaser-template/blob/master/.github/workflows/release-please.yml)
+- [remarkablegames/renpy-template](https://github.com/remarkablegames/renpy-template/blob/master/.github/workflows/release-please.yml)
 
 ## Contributions
 
