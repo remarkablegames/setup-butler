@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.3](https://github.com/remarkablegames/setup-butler/compare/v1.0.2...v1.0.3) (2024-10-07)
+
+
+### Build System
+
+* **deps:** bump @actions/core from 1.11.0 to 1.11.1 ([#153](https://github.com/remarkablegames/setup-butler/issues/153)) ([88cde48](https://github.com/remarkablegames/setup-butler/commit/88cde48316853fd05e76a8c097aeca11b6aaa655))
+
 ## [1.0.2](https://github.com/remarkablegames/setup-butler/compare/v1.0.1...v1.0.2) (2024-10-03)
 
 
