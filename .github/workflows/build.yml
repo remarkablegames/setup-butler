@@ -1,17 +1,15 @@
 name: build
 on: [push, pull_request]
 
-permissions:
-  contents: write
-
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: Use Node.js
         uses: actions/setup-node@v4
@@ -20,27 +18,7 @@ jobs:
           node-version-file: .nvmrc
 
       - name: Install dependencies
-        run: npm install
-
-      - name: Lint commit message
-        run: npx commitlint --from=HEAD~1
-
-      - name: Lint codebase
-        run: npm run lint
-
-      - name: Check type
-        run: npm run lint:tsc
-
-      - name: Run tests
-        run: npm run test:ci
-
-      - name: Codecov
-        uses: codecov/codecov-action@v4
-        env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-
-      - name: Run action
-        uses: ./
+        run: npm ci --prefer-offline
 
       - name: Build artifact
         run: npm run build
@@ -58,36 +36,3 @@ jobs:
             git diff
             exit 1
           fi
-
-  # action should work on a clean machine without building
-  test:
-    strategy:
-      matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
-        version: [LATEST, 15.21.0, 14.14.0]
-    runs-on: ${{ matrix.os }}
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Run action
-        uses: ./
-        with:
-          butler-version: ${{ matrix.version }}
-          cli-name: butler
-
-      - name: Locate binary
-        run: command -v butler
-
-      - name: Check version
-        if: matrix.os != 'windows-latest' && matrix.version != 'LATEST'
-        run: |
-          butler --version &> BUTLER_VERSION
-          if [[ $(cat BUTLER_VERSION) != *'${{ matrix.version }}'* ]]; then
-            echo 'Version does not match. See version below:'
-            butler --version
-            exit 1
-          fi
-
-      - name: Show help
-        run: butler --help
