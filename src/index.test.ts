@@ -55,7 +55,7 @@ describe.each(platforms)('platform is %p', (platform) => {
     expect(mockedTc.downloadTool).toHaveBeenCalledWith(
       expect.stringMatching(
         new RegExp(
-          `https://broth.itch.ovh/butler/[a-zA-Z0-9-]+/${version}/archive/default`,
+          `http://broth.itch.ovh/butler/[a-zA-Z0-9-]+/${version}/archive/default`,
         ),
       ),
     );
