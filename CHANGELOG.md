@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.4](https://github.com/remarkablegames/setup-butler/compare/v1.0.3...v1.0.4) (2024-12-17)
+
+
+### Bug Fixes
+
+* replace HTTPS with HTTP protocol for butler download URL ([c62074d](https://github.com/remarkablegames/setup-butler/commit/c62074d41cdfa96aba99cf1c33e9a694bf0626e1))
+
 ## [1.0.3](https://github.com/remarkablegames/setup-butler/compare/v1.0.2...v1.0.3) (2024-10-07)
 
 
