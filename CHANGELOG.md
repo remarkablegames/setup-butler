@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.5](https://github.com/remarkablegames/setup-butler/compare/v1.0.4...v1.0.5) (2025-01-16)
+
+
+### Build System
+
+* **deps:** bump @actions/tool-cache from 2.0.1 to 2.0.2 ([#230](https://github.com/remarkablegames/setup-butler/issues/230)) ([6cb0357](https://github.com/remarkablegames/setup-butler/commit/6cb0357d0f37cd18482889774dae751af113f5be))
+
 ## [1.0.4](https://github.com/remarkablegames/setup-butler/compare/v1.0.3...v1.0.4) (2024-12-17)
 
 
