@@ -56,7 +56,8 @@ jobs:
         run: command -v butler
 
       - name: Check version
-        if: matrix.os != 'windows-latest' && matrix.version != 'LATEST'
+        if: matrix.version != 'LATEST'
+        shell: bash
         run: |
           butler --version &> BUTLER_VERSION
           if [[ $(cat BUTLER_VERSION) != *'${{ matrix.version }}'* ]]; then
