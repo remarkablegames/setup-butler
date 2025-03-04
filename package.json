@@ -41,7 +41,7 @@
     "lint-staged": "15.4.3",
     "prettier": "3.5.3",
     "ts-jest": "29.2.6",
-    "typescript": "5.7.3"
+    "typescript": "5.8.2"
   },
   "private": true,
   "license": "MIT"
