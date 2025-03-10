@@ -29,13 +29,13 @@ The `BUTLER_API_KEY` is your [itch.io API key](https://itch.io/user/settings/api
 
 ## Usage
 
-See [action.yml](action.yml)
-
 **Basic:**
 
 ```yaml
 - uses: remarkablegames/setup-butler@v1
 ```
+
+See [action.yml](action.yml)
 
 ## Inputs
 
@@ -63,10 +63,6 @@ See [action.yml](action.yml)
 
 - [remarkablegames/phaser-template](https://github.com/remarkablegames/phaser-template/blob/master/.github/workflows/release-please.yml)
 - [remarkablegames/renpy-template](https://github.com/remarkablegames/renpy-template/blob/master/.github/workflows/release-please.yml)
-
-## Contributions
-
-Contributions are welcome!
 
 ## License
 
