@@ -19,7 +19,7 @@ export default defineConfig([
   },
 
   {
-    files: ['**/*.{js,mjs,cjs,ts,tsx,mts,cts}'],
+    files: ['**/*.{js,mjs,cjs,ts,mts,cts}'],
 
     plugins: {
       'simple-import-sort': simpleImportSort,
