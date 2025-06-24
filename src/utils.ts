@@ -53,7 +53,7 @@ function getPlatform() {
  * @returns - Download URL
  */
 export function getDownloadUrl(version: string) {
-  return `http://broth.itch.ovh/butler/${getPlatform()}-${getArch()}/${version}/archive/default`;
+  return `https://broth.itch.zone/butler/${getPlatform()}-${getArch()}/${version}/archive/default`;
 }
 
 /**
