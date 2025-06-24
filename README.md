@@ -61,8 +61,8 @@ See [action.yml](action.yml)
 
 ## Examples
 
-- [remarkablegames/phaser-template](https://github.com/remarkablegames/phaser-template/blob/master/.github/workflows/release-please.yml)
-- [remarkablegames/renpy-template](https://github.com/remarkablegames/renpy-template/blob/master/.github/workflows/release-please.yml)
+- [phaser-template](https://github.com/remarkablegames/phaser-template/blob/master/.github/workflows/release-please.yml)
+- [renpy-template](https://github.com/remarkablegames/renpy-template/blob/master/.github/workflows/release-please.yml)
 
 ## License
 
