@@ -41,7 +41,7 @@ See [action.yml](action.yml)
 
 ### `butler-version`
 
-**Optional**: The CLI [version](https://broth.itch.ovh/butler). Defaults to `LATEST`:
+**Optional**: The CLI [version](https://broth.itch.zone/butler). Defaults to `LATEST`:
 
 ```yaml
 - uses: remarkablegames/setup-butler@v1
