@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.8](https://github.com/remarkablegames/setup-butler/compare/v1.0.7...v1.0.8) (2025-06-24)
+
+
+### Performance Improvements
+
+* **index:** download binary from cache ([63bcb3f](https://github.com/remarkablegames/setup-butler/commit/63bcb3fcf1c962c65b6b705d93e22e52a3f712e9))
+
 ## [1.0.7](https://github.com/remarkablegames/setup-butler/compare/v1.0.6...v1.0.7) (2025-06-24)
 
 
