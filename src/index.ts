@@ -21,6 +21,8 @@ export async function run() {
 
     // Rename the binary
     const binaryPath = getBinaryPath(extractDirectory, name);
+
+    /* istanbul ignore else */
     if (name !== DEFAULT_NAME) {
       await exec('mv', [
         getBinaryPath(extractDirectory, DEFAULT_NAME),
@@ -34,6 +36,7 @@ export async function run() {
     // Expose the tool by adding it to the PATH
     addPath(extractDirectory);
   } catch (error) {
+    /* istanbul ignore else */
     if (error instanceof Error) {
       setFailed(error.message);
     }
