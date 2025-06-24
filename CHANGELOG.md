@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.0.6](https://github.com/remarkablegames/setup-butler/compare/v1.0.5...v1.0.6) (2025-06-24)
+
+
+### Bug Fixes
+
+* replace `http://broth.itch.ovh` with `https://broth.itch.zone` ([08493ef](https://github.com/remarkablegames/setup-butler/commit/08493effe09df1fe91a88a519228b46f9feb79db))
+
+
+### Build System
+
+* **package:** bump lockfileVersion from 2 to 3 ([5566d54](https://github.com/remarkablegames/setup-butler/commit/5566d541b47e209747b9db61cb1f4175b67d6dcb))
+
 ## [1.0.5](https://github.com/remarkablegames/setup-butler/compare/v1.0.4...v1.0.5) (2025-01-16)
 
 
