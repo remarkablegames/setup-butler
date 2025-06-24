@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.7](https://github.com/remarkablegames/setup-butler/compare/v1.0.6...v1.0.7) (2025-06-24)
+
+
+### Code Refactoring
+
+* **constants:** move constants to index.ts ([c0b73be](https://github.com/remarkablegames/setup-butler/commit/c0b73beec52bc6da3019286a0d7503e59051054e))
+
 ## [1.0.6](https://github.com/remarkablegames/setup-butler/compare/v1.0.5...v1.0.6) (2025-06-24)
 
 
