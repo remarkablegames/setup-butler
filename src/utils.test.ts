@@ -5,8 +5,8 @@ import { getBinaryPath, getDownloadUrl } from './utils';
 jest.mock('os');
 const mockedOs = jest.mocked(os);
 
-const platforms = ['darwin', 'linux', 'win32'] as const;
-const architectures = ['arm', 'arm64', 'x32', 'x64'] as const;
+const platforms: NodeJS.Platform[] = ['darwin', 'linux', 'win32'];
+const architectures = ['arm', 'arm64', 'x32', 'x64'] as NodeJS.Architecture[];
 
 describe('getDownloadUrl', () => {
   const version = '1.2.3';
@@ -14,9 +14,11 @@ describe('getDownloadUrl', () => {
   const table = platforms.reduce(
     (testSuites, os) => [
       ...testSuites,
-      ...architectures.map((arch) => [os, arch] as [string, string]),
+      ...architectures.map(
+        (arch) => [os, arch] as [NodeJS.Platform, NodeJS.Architecture],
+      ),
     ],
-    [] as [string, string][],
+    [] as [NodeJS.Platform, NodeJS.Architecture][],
   );
 
   beforeEach(() => {
@@ -25,7 +27,7 @@ describe('getDownloadUrl', () => {
 
   describe.each(table)('when platform is %p and arch is %p', (os, arch) => {
     beforeEach(() => {
-      mockedOs.platform.mockReturnValue(os as NodeJS.Platform);
+      mockedOs.platform.mockReturnValue(os);
       mockedOs.arch.mockReturnValue(arch);
     });
 
