@@ -16,10 +16,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Setup butler
-        uses: remarkablegames/setup-butler@v1
+        uses: remarkablegames/setup-butler@v2
 
+      # https://itch.io/docs/butler/pushing.html
       - name: Upload to itch.io
-        # https://itch.io/docs/butler/pushing.html
         run: butler push directory user/game:channel
         env:
           BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
@@ -32,7 +32,7 @@ The `BUTLER_API_KEY` is your [itch.io API key](https://itch.io/user/settings/api
 **Basic:**
 
 ```yaml
-- uses: remarkablegames/setup-butler@v1
+- uses: remarkablegames/setup-butler@v2
 ```
 
 See [action.yml](action.yml)
@@ -44,7 +44,7 @@ See [action.yml](action.yml)
 **Optional**: The CLI [version](https://broth.itch.zone/butler). Defaults to `LATEST`:
 
 ```yaml
-- uses: remarkablegames/setup-butler@v1
+- uses: remarkablegames/setup-butler@v2
   with:
     butler-version: LATEST
 ```
@@ -54,7 +54,7 @@ See [action.yml](action.yml)
 **Optional**: The CLI name. Defaults to `butler`:
 
 ```yaml
-- uses: remarkablegames/setup-butler@v1
+- uses: remarkablegames/setup-butler@v2
   with:
     cli-name: butler
 ```
