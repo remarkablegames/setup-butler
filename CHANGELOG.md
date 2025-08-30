@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.0.0](https://github.com/remarkablegames/setup-butler/compare/v1.0.8...v2.0.0) (2025-08-30)
+
+
+### ⚠ BREAKING CHANGES
+
+* **action:** bump Node.js runtime from 20 to 24
+
+### Build System
+
+* **action:** update runtime from node20 to node24 ([bf84f8b](https://github.com/remarkablegames/setup-butler/commit/bf84f8bf01ef1b53521217cd4883132519a64fd3))
+
 ## [1.0.8](https://github.com/remarkablegames/setup-butler/compare/v1.0.7...v1.0.8) (2025-06-24)
 
 
