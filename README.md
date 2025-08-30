@@ -1,3 +1,7 @@
+<p align="center">
+  <img alt="itchio" height="150px" src="https://raw.githubusercontent.com/remarkablegames/setup-butler/master/itchio-logo.svg">
+</p>
+
 # setup-butler
 
 [![version](https://badgen.net/github/release/remarkablegames/setup-butler)](https://github.com/remarkablegames/setup-butler/releases)
