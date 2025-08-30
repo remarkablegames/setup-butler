@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`getBinaryPath when platform is "darwin" returns CLI path 1`] = `"directory/name"`;
 
