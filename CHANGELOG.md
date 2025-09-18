@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.1](https://github.com/remarkablegames/setup-butler/compare/v2.0.0...v2.0.1) (2025-09-18)
+
+
+### Bug Fixes
+
+* **index:** add cacheFile filename extension in win32 ([b0df006](https://github.com/remarkablegames/setup-butler/commit/b0df006bc50e78a796de457f54b9be40644ec056))
+
 ## [2.0.0](https://github.com/remarkablegames/setup-butler/compare/v1.0.8...v2.0.0) (2025-08-30)
 
 
