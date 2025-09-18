@@ -69,7 +69,7 @@ describe.each(platforms)('platform is %p', (platform) => {
 
     expect(mockedTc.cacheFile).toHaveBeenCalledWith(
       expect.stringContaining(`${path.cli}/${name}`),
-      name,
+      platform === 'win32' ? `${name}.exe` : name,
       name,
       version,
     );
