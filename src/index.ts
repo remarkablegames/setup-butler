@@ -5,17 +5,16 @@ import path from 'path';
 
 import { getBinaryPath, getDownloadUrl } from './utils';
 
-const DEFAULT_NAME = 'butler';
+const TOOL_NAME = 'butler';
 
 export async function run() {
   try {
     // Get the version of the tool to be installed
     const cliVersion = getInput('butler-version');
-    const cliName = getInput('cli-name') || DEFAULT_NAME;
-    const toolName = cliName;
+    const cliName = getInput('cli-name');
 
     // Find previously cached directory (if applicable)
-    let binaryPath = find(toolName, cliVersion);
+    let binaryPath = find(cliName, cliVersion);
     const isCached = Boolean(binaryPath);
 
     /* istanbul ignore else */
@@ -31,9 +30,9 @@ export async function run() {
       binaryPath = getBinaryPath(extractDirectory, cliName);
 
       /* istanbul ignore else */
-      if (cliName !== DEFAULT_NAME) {
+      if (cliName !== TOOL_NAME) {
         await exec('mv', [
-          getBinaryPath(extractDirectory, DEFAULT_NAME),
+          getBinaryPath(extractDirectory, TOOL_NAME),
           binaryPath,
         ]);
       }
@@ -45,7 +44,8 @@ export async function run() {
     // Cache the tool
     /* istanbul ignore else */
     if (!isCached) {
-      await cacheFile(binaryPath, cliName, toolName, cliVersion);
+      const filename = getBinaryPath('', cliName);
+      await cacheFile(binaryPath, filename, cliName, cliVersion);
     }
   } catch (error) {
     /* istanbul ignore else */

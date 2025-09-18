@@ -33,7 +33,7 @@ The `BUTLER_API_KEY` is your [itch.io API key](https://itch.io/user/settings/api
 
 ## Usage
 
-**Basic:**
+Set up butler CLI:
 
 ```yaml
 - uses: remarkablegames/setup-butler@v2
