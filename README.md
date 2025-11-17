@@ -1,10 +1,10 @@
 <p align="center">
-  <img alt="itchio" height="150px" src="https://raw.githubusercontent.com/remarkablegames/setup-butler/master/itchio-logo.svg">
+  <img alt="itch.io" height="150" src="https://raw.githubusercontent.com/remarkablegames/setup-butler/master/itchio-logo.svg">
 </p>
 
 # setup-butler
 
-[![version](https://badgen.net/github/release/remarkablegames/setup-butler)](https://github.com/remarkablegames/setup-butler/releases)
+[![version](https://img.shields.io/github/release/remarkablegames/setup-butler)](https://github.com/remarkablegames/setup-butler/releases)
 [![build](https://github.com/remarkablegames/setup-butler/actions/workflows/build.yml/badge.svg)](https://github.com/remarkablegames/setup-butler/actions/workflows/build.yml)
 [![codecov](https://codecov.io/gh/remarkablegames/setup-butler/graph/badge.svg?token=AAbBz3SIPn)](https://codecov.io/gh/remarkablegames/setup-butler)
 
