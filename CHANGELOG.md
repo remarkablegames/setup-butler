@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.0.4](https://github.com/remarkablegames/setup-butler/compare/v2.0.3...v2.0.4) (2026-01-28)
+
+
+### Build System
+
+* **deps:** bump @actions/core from 2.0.2 to 2.0.3 ([#530](https://github.com/remarkablegames/setup-butler/issues/530)) ([d767edf](https://github.com/remarkablegames/setup-butler/commit/d767edfd04ecf2d364a151603d504c688c1df610))
+* **deps:** bump @actions/tool-cache from 3.0.0 to 3.0.1 ([#532](https://github.com/remarkablegames/setup-butler/issues/532)) ([17f9c88](https://github.com/remarkablegames/setup-butler/commit/17f9c88dd9ba6ad19a2f2edf55710597deb8c5ab))
+
 ## [2.0.3](https://github.com/remarkablegames/setup-butler/compare/v2.0.2...v2.0.3) (2026-01-08)
 
 
