@@ -5,7 +5,7 @@ const mockedOs = {
   arch: jest.fn(),
 };
 
-jest.unstable_mockModule('os', () => ({
+jest.unstable_mockModule('node:os', () => ({
   default: mockedOs,
   ...mockedOs,
 }));

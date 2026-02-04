@@ -18,15 +18,15 @@ const mockedTc = {
 };
 
 const mockedOs = {
-  platform: jest.fn<typeof import('os').platform>(),
-  arch: jest.fn<typeof import('os').arch>(),
+  platform: jest.fn<typeof import('node:os').platform>(),
+  arch: jest.fn<typeof import('node:os').arch>(),
 };
 
 jest.unstable_mockModule('@actions/core', () => mockedCore);
 jest.unstable_mockModule('@actions/exec', () => mockedExec);
 jest.unstable_mockModule('@actions/tool-cache', () => mockedTc);
 
-jest.unstable_mockModule('os', () => ({
+jest.unstable_mockModule('node:os', () => ({
   default: mockedOs,
   ...mockedOs,
 }));

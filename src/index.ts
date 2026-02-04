@@ -1,7 +1,8 @@
+import path from 'node:path';
+
 import { addPath, getInput, setFailed } from '@actions/core';
 import { exec } from '@actions/exec';
 import { cacheFile, downloadTool, extractZip, find } from '@actions/tool-cache';
-import path from 'path';
 
 import { getBinaryPath, getDownloadUrl } from './utils';
 
