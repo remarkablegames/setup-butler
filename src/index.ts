@@ -1,7 +1,8 @@
+import { dirname } from 'node:path';
+
 import { addPath, getInput, setFailed } from '@actions/core';
 import { exec } from '@actions/exec';
 import { cacheFile, downloadTool, extractZip, find } from '@actions/tool-cache';
-import path from 'path';
 
 import { getBinaryPath, getDownloadUrl } from './utils';
 
@@ -39,7 +40,7 @@ export async function run() {
     }
 
     // Expose the tool by adding it to the PATH
-    addPath(path.dirname(binaryPath));
+    addPath(dirname(binaryPath));
 
     // Cache the tool
     /* istanbul ignore else */

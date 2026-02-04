@@ -12,12 +12,13 @@
     "lint:fix": "npm run lint -- --fix",
     "lint:tsc": "tsc --noEmit",
     "prepare": "husky",
-    "test": "jest",
-    "test:ci": "CI=true jest --ci --colors --coverage",
-    "test:watch": "jest --watch"
+    "test": "node --experimental-vm-modules $(npx which jest)",
+    "test:ci": "CI=true npm test -- --ci --colors --coverage",
+    "test:watch": "npm test -- --watch"
   },
   "dependencies": {
-    "@actions/core": "2.0.3",
+    "@actions/core": "3.0.0",
+    "@actions/exec": "3.0.0",
     "@actions/tool-cache": "3.0.1"
   },
   "devDependencies": {
