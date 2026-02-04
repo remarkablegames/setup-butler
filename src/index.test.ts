@@ -26,10 +26,7 @@ jest.unstable_mockModule('@actions/core', () => mockedCore);
 jest.unstable_mockModule('@actions/exec', () => mockedExec);
 jest.unstable_mockModule('@actions/tool-cache', () => mockedTc);
 
-jest.unstable_mockModule('node:os', () => ({
-  default: mockedOs,
-  ...mockedOs,
-}));
+jest.unstable_mockModule('node:os', () => mockedOs);
 
 const { run } = await import('.');
 
@@ -61,7 +58,7 @@ describe.each(platforms)('platform is %p', (platform) => {
         case 'cli-name':
           return name;
         default:
-          return '';
+          throw Error(`Invalid input: ${input}`);
       }
     });
 

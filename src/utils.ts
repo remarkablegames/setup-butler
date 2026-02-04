@@ -1,5 +1,5 @@
-import os from 'node:os';
-import path from 'node:path';
+import { arch, platform } from 'node:os';
+import { join } from 'node:path';
 
 const Arch = {
   arm64: 'amd64',
@@ -16,11 +16,11 @@ const Arch = {
  * @returns - Return value in [386, amd64]
  */
 function getArch() {
-  const arch = Arch[os.arch() as keyof typeof Arch];
-  if (arch) {
-    return arch;
+  const currentArch = Arch[arch() as keyof typeof Arch];
+  if (currentArch) {
+    return currentArch;
   }
-  throw new Error(`Unsupported arch: ${os.arch()}`);
+  throw new Error(`Unsupported arch: ${arch()}`);
 }
 
 enum Platform {
@@ -37,11 +37,11 @@ enum Platform {
  * @returns - Return value in [darwin, linux, windows]
  */
 function getPlatform() {
-  const platform = Platform[os.platform() as keyof typeof Platform];
-  if (platform) {
-    return platform;
+  const currentPlatform = Platform[platform() as keyof typeof Platform];
+  if (currentPlatform) {
+    return currentPlatform;
   }
-  throw new Error(`Unsupported platform: ${os.platform()}`);
+  throw new Error(`Unsupported platform: ${platform()}`);
 }
 
 /**
@@ -64,7 +64,7 @@ export function getDownloadUrl(version: string) {
  * @returns - Binary path
  */
 export function getBinaryPath(directory: string, name: string) {
-  return path.join(
+  return join(
     directory,
     name + (getPlatform() === Platform.win32 ? '.exe' : ''),
   );

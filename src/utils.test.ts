@@ -5,10 +5,7 @@ const mockedOs = {
   arch: jest.fn(),
 };
 
-jest.unstable_mockModule('node:os', () => ({
-  default: mockedOs,
-  ...mockedOs,
-}));
+jest.unstable_mockModule('node:os', () => mockedOs);
 
 const { getBinaryPath, getDownloadUrl } = await import('./utils');
 

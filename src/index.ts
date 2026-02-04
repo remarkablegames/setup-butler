@@ -1,4 +1,4 @@
-import path from 'node:path';
+import { dirname } from 'node:path';
 
 import { addPath, getInput, setFailed } from '@actions/core';
 import { exec } from '@actions/exec';
@@ -40,7 +40,7 @@ export async function run() {
     }
 
     // Expose the tool by adding it to the PATH
-    addPath(path.dirname(binaryPath));
+    addPath(dirname(binaryPath));
 
     // Cache the tool
     /* istanbul ignore else */
