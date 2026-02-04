@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "@actions/core": "3.0.0",
+    "@actions/exec": "3.0.0",
     "@actions/tool-cache": "3.0.1"
   },
   "devDependencies": {
