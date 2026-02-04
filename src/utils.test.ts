@@ -1,9 +1,16 @@
-import os from 'os';
+import { jest } from '@jest/globals';
 
-import { getBinaryPath, getDownloadUrl } from './utils';
+const mockedOs = {
+  platform: jest.fn(),
+  arch: jest.fn(),
+};
 
-jest.mock('os');
-const mockedOs = jest.mocked(os);
+jest.unstable_mockModule('os', () => ({
+  default: mockedOs,
+  ...mockedOs,
+}));
+
+const { getBinaryPath, getDownloadUrl } = await import('./utils');
 
 const platforms: NodeJS.Platform[] = ['darwin', 'linux', 'win32'];
 const architectures = ['arm', 'arm64', 'x32', 'x64'] as NodeJS.Architecture[];
@@ -22,7 +29,7 @@ describe('getDownloadUrl', () => {
   );
 
   beforeEach(() => {
-    jest.resetAllMocks();
+    jest.clearAllMocks();
   });
 
   describe.each(table)('when platform is %p and arch is %p', (os, arch) => {
@@ -62,7 +69,7 @@ describe('getDownloadUrl', () => {
 describe('getBinaryPath', () => {
   describe.each(platforms)('when platform is %p', (os) => {
     beforeEach(() => {
-      jest.resetAllMocks();
+      jest.clearAllMocks();
       mockedOs.platform.mockReturnValue(os);
     });
 

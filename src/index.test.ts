@@ -1,19 +1,37 @@
-import * as core from '@actions/core';
-import * as exec from '@actions/exec';
-import * as tc from '@actions/tool-cache';
-import os from 'os';
+import { jest } from '@jest/globals';
 
-import { run } from '.';
+const mockedCore = {
+  addPath: jest.fn<typeof import('@actions/core').addPath>(),
+  getInput: jest.fn<typeof import('@actions/core').getInput>(),
+  setFailed: jest.fn<typeof import('@actions/core').setFailed>(),
+};
 
-jest.mock('@actions/core');
-jest.mock('@actions/exec');
-jest.mock('@actions/tool-cache');
-jest.mock('os');
+const mockedExec = {
+  exec: jest.fn<typeof import('@actions/exec').exec>(),
+};
 
-const mockedCore = jest.mocked(core);
-const mockedExec = jest.mocked(exec);
-const mockedTc = jest.mocked(tc);
-const mockedOs = jest.mocked(os);
+const mockedTc = {
+  cacheFile: jest.fn<typeof import('@actions/tool-cache').cacheFile>(),
+  downloadTool: jest.fn<typeof import('@actions/tool-cache').downloadTool>(),
+  extractZip: jest.fn<typeof import('@actions/tool-cache').extractZip>(),
+  find: jest.fn<typeof import('@actions/tool-cache').find>(),
+};
+
+const mockedOs = {
+  platform: jest.fn<typeof import('os').platform>(),
+  arch: jest.fn<typeof import('os').arch>(),
+};
+
+jest.unstable_mockModule('@actions/core', () => mockedCore);
+jest.unstable_mockModule('@actions/exec', () => mockedExec);
+jest.unstable_mockModule('@actions/tool-cache', () => mockedTc);
+
+jest.unstable_mockModule('os', () => ({
+  default: mockedOs,
+  ...mockedOs,
+}));
+
+const { run } = await import('.');
 
 const name = 'cli-name';
 const version = '1.2.3';
@@ -26,7 +44,7 @@ const path = {
 const platforms = ['darwin', 'linux', 'win32'] as const;
 
 afterEach(() => {
-  jest.resetAllMocks();
+  jest.clearAllMocks();
 });
 
 describe.each(platforms)('platform is %p', (platform) => {
