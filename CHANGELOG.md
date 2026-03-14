@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.6](https://github.com/remarkablegames/setup-butler/compare/v2.0.5...v2.0.6) (2026-03-14)
+
+
+### Build System
+
+* **deps:** bump undici from 6.23.0 to 6.24.0 ([#571](https://github.com/remarkablegames/setup-butler/issues/571)) ([d105576](https://github.com/remarkablegames/setup-butler/commit/d105576ca7ed82078c92074d8e3ca6df62ecbc75))
+
 ## [2.0.5](https://github.com/remarkablegames/setup-butler/compare/v2.0.4...v2.0.5) (2026-02-04)
 
 
