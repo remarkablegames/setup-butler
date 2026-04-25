@@ -6,7 +6,7 @@
   "main": "src/index.ts",
   "scripts": {
     "build": "ncc build --minify",
-    "build:watch": "tsc --project tsconfig.build.json --watch",
+    "build:watch": "tsc --watch",
     "clean": "rm -rf coverage dist",
     "lint": "eslint .",
     "lint:fix": "npm run lint -- --fix",
