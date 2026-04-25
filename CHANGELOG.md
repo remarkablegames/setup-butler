@@ -1,5 +1,16 @@
 # Changelog
 
+## [3.0.0](https://github.com/remarkablegames/setup-butler/compare/v2.0.7...v3.0.0) (2026-04-25)
+
+
+### ⚠ BREAKING CHANGES
+
+* **utils:** drop support for Butler version 14 and below
+
+### Bug Fixes
+
+* **utils:** fix architecture mapping for arm64 ([#601](https://github.com/remarkablegames/setup-butler/issues/601)) ([e209062](https://github.com/remarkablegames/setup-butler/commit/e20906249278abdcccadab66d2b4ba150233c15a))
+
 ## [2.0.7](https://github.com/remarkablegames/setup-butler/compare/v2.0.6...v2.0.7) (2026-04-24)
 
 
