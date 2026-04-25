@@ -10,7 +10,7 @@
     "clean": "rm -rf coverage dist",
     "lint": "eslint .",
     "lint:fix": "npm run lint -- --fix",
-    "lint:tsc": "tsc --noEmit",
+    "lint:tsc": "tsc --project tsconfig.test.json",
     "prepare": "husky",
     "test": "node --experimental-vm-modules $(npx which jest)",
     "test:ci": "CI=true npm test -- --ci --colors --coverage",
@@ -41,7 +41,7 @@
     "prettier": "3.8.3",
     "ts-jest": "29.4.9",
     "ts-node": "10.9.2",
-    "typescript": "5.9.3",
+    "typescript": "6.0.3",
     "typescript-eslint": "8.59.0"
   },
   "private": true,

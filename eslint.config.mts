@@ -28,9 +28,19 @@ export default defineConfig([
       tsdoc,
     },
 
-    extends: [eslint.configs.recommended, tseslint.configs.recommended],
+    extends: [
+      eslint.configs.recommended,
+      tseslint.configs.recommended,
+      tseslint.configs.recommendedTypeChecked,
+      tseslint.configs.strictTypeChecked,
+      tseslint.configs.stylisticTypeChecked,
+    ],
 
     languageOptions: {
+      parserOptions: {
+        project: ['tsconfig.json', 'tsconfig.test.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
       globals: {
         ...globals.node,
         ...globals.jest,

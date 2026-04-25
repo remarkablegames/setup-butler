@@ -15,7 +15,10 @@ const config: Config = {
     '^(\\.{1,2}/.*)\\.js$': '$1',
   },
   transform: {
-    '^.+\\.m?[tj]sx?$': ['ts-jest', { useESM: true }],
+    '^.+\\.m?[tj]sx?$': [
+      'ts-jest',
+      { useESM: true, tsconfig: 'tsconfig.test.json' },
+    ],
   },
 };
 
