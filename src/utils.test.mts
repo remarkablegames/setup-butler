@@ -15,14 +15,14 @@ const architectures = ['arm', 'arm64', 'x32', 'x64'] as NodeJS.Architecture[];
 describe('getDownloadUrl', () => {
   const version = '1.2.3';
 
-  const table = platforms.reduce(
+  const table = platforms.reduce<[NodeJS.Platform, NodeJS.Architecture][]>(
     (testSuites, os) => [
       ...testSuites,
       ...architectures.map(
         (arch) => [os, arch] as [NodeJS.Platform, NodeJS.Architecture],
       ),
     ],
-    [] as [NodeJS.Platform, NodeJS.Architecture][],
+    [],
   );
 
   beforeEach(() => {
