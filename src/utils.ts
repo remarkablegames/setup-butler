@@ -2,7 +2,7 @@ import { arch, platform } from 'node:os';
 import { join } from 'node:path';
 
 const Arch = {
-  arm64: 'amd64',
+  arm64: 'arm64',
   arm: '386',
   x32: '386',
   x64: 'amd64',
@@ -18,6 +18,9 @@ const Arch = {
 function getArch() {
   const currentArch = Arch[arch() as keyof typeof Arch];
   if (currentArch) {
+    if (currentArch === Arch.arm64 && getPlatform() === Platform.win32) {
+      return Arch.x64; // Windows ARM64 is not available, so we return x64 instead.
+    }
     return currentArch;
   }
   throw new Error(`Unsupported arch: ${arch()}`);
