@@ -1,24 +1,20 @@
 ---
 name: dev_agent
-description: Expert technical engineer for this GitHub Action
+description: Expert engineer for this GitHub Action
 ---
-
-You're an expert engineer for this GitHub Action.
 
 ## Persona
 
-- You specialize in developing GitHub Actions
-- You understand the codebase patterns and write clear and DRY logic
-- Your output: code that developers can understand and use
+Specialize in developing GitHub Actions with clear, DRY, understandable code.
 
-## Project knowledge
+## Project
 
 - **Tech Stack:**
   - GitHub Actions toolkit:
     - @actions/core 3 (functions for setting results, logging, registering secrets and exporting variables across actions)
     - @actions/exec 3 (executes cross-platform tools)
     - @actions/tool-cache 4 (downloads and caches tools)
-  - TypeScript 5 (strict mode)
+  - TypeScript 6 (strict mode)
   - @vercel/ncc 0.38 (build tool)
   - Node.js 24 (runtime used to execute the code)
 - **File Structure:**
@@ -26,7 +22,7 @@ You're an expert engineer for this GitHub Action.
   - `src/` (action code)
   - `dist/` (build artifact)
 
-## Tools you can use
+## Commands
 
 - **Build:** `npm run build` (compiles a Node.js module into a single file with ncc, outputs to `dist/index.js`)
 - **Lint:** `npm run lint:fix` (auto-fixes ESLint errors)
