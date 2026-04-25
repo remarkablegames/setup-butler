@@ -6,11 +6,11 @@
   "main": "src/index.ts",
   "scripts": {
     "build": "ncc build --minify",
-    "build:watch": "tsc --watch",
+    "build:watch": "tsc --project tsconfig.build.json --watch",
     "clean": "rm -rf coverage dist",
     "lint": "eslint .",
     "lint:fix": "npm run lint -- --fix",
-    "lint:tsc": "tsc --noEmit",
+    "lint:tsc": "tsc --project tsconfig.test.json",
     "prepare": "husky",
     "test": "node --experimental-vm-modules $(npx which jest)",
     "test:ci": "CI=true npm test -- --ci --colors --coverage",

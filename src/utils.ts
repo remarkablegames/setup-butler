@@ -16,13 +16,17 @@ const Arch = {
  * @returns - Return value in [386, amd64]
  */
 function getArch() {
-  const currentArch = Arch[arch() as keyof typeof Arch];
+  const currentArch = Arch[arch() as keyof typeof Arch] as
+    | (typeof Arch)[keyof typeof Arch]
+    | undefined;
+
   if (currentArch) {
     if (currentArch === Arch.arm64 && getPlatform() === Platform.win32) {
       return Arch.x64; // Windows ARM64 is not available, so we return x64 instead.
     }
     return currentArch;
   }
+
   throw new Error(`Unsupported arch: ${arch()}`);
 }
 
@@ -40,10 +44,14 @@ enum Platform {
  * @returns - Return value in [darwin, linux, windows]
  */
 function getPlatform() {
-  const currentPlatform = Platform[platform() as keyof typeof Platform];
+  const currentPlatform = Platform[platform() as keyof typeof Platform] as
+    | Platform
+    | undefined;
+
   if (currentPlatform) {
     return currentPlatform;
   }
+
   throw new Error(`Unsupported platform: ${platform()}`);
 }
 
