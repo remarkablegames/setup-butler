@@ -8,7 +8,7 @@ exports[`getBinaryPath when platform is "win32" returns CLI path 1`] = `"directo
 
 exports[`getDownloadUrl when platform is "darwin" and arch is "arm" returns download object 1`] = `"https://broth.itch.zone/butler/darwin-386/1.2.3/archive/default"`;
 
-exports[`getDownloadUrl when platform is "darwin" and arch is "arm64" returns download object 1`] = `"https://broth.itch.zone/butler/darwin-amd64/1.2.3/archive/default"`;
+exports[`getDownloadUrl when platform is "darwin" and arch is "arm64" returns download object 1`] = `"https://broth.itch.zone/butler/darwin-arm64/1.2.3/archive/default"`;
 
 exports[`getDownloadUrl when platform is "darwin" and arch is "x32" returns download object 1`] = `"https://broth.itch.zone/butler/darwin-386/1.2.3/archive/default"`;
 
@@ -16,7 +16,7 @@ exports[`getDownloadUrl when platform is "darwin" and arch is "x64" returns down
 
 exports[`getDownloadUrl when platform is "linux" and arch is "arm" returns download object 1`] = `"https://broth.itch.zone/butler/linux-386/1.2.3/archive/default"`;
 
-exports[`getDownloadUrl when platform is "linux" and arch is "arm64" returns download object 1`] = `"https://broth.itch.zone/butler/linux-amd64/1.2.3/archive/default"`;
+exports[`getDownloadUrl when platform is "linux" and arch is "arm64" returns download object 1`] = `"https://broth.itch.zone/butler/linux-arm64/1.2.3/archive/default"`;
 
 exports[`getDownloadUrl when platform is "linux" and arch is "x32" returns download object 1`] = `"https://broth.itch.zone/butler/linux-386/1.2.3/archive/default"`;
 

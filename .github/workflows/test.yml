@@ -40,7 +40,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        version: [LATEST, 15.21.0, 14.14.0]
+        version: [LATEST, 15.26.1]
 
     steps:
       - name: Checkout repository
