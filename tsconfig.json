@@ -2,9 +2,11 @@
   "compilerOptions": {
     "target": "es2022",
     "module": "es2022",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "esModuleInterop": true,
-    "strict": true
+    "strict": true,
+    "types": ["jest", "node"],
+    "rootDir": "src"
   },
   "include": ["src"]
 }
