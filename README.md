@@ -1,5 +1,5 @@
 <p align="center">
-  <img alt="itch.io" height="150" src="https://raw.githubusercontent.com/remarkablegames/setup-butler/master/itchio-logo.svg">
+  <img alt="itch.io" height="150" src="itchio-logo.svg">
 </p>
 
 # setup-butler
