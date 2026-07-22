@@ -17,8 +17,7 @@ const Arch = {
  */
 function getArch() {
   const currentArch = Arch[arch() as keyof typeof Arch] as
-    | (typeof Arch)[keyof typeof Arch]
-    | undefined;
+    (typeof Arch)[keyof typeof Arch] | undefined;
 
   if (currentArch) {
     if (currentArch === Arch.arm64 && getPlatform() === Platform.win32) {
@@ -45,8 +44,7 @@ enum Platform {
  */
 function getPlatform() {
   const currentPlatform = Platform[platform() as keyof typeof Platform] as
-    | Platform
-    | undefined;
+    Platform | undefined;
 
   if (currentPlatform) {
     return currentPlatform;
