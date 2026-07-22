@@ -1,11 +1,9 @@
-import { jest } from '@jest/globals';
+const mockedOs = vi.hoisted(() => ({
+  platform: vi.fn(),
+  arch: vi.fn(),
+}));
 
-const mockedOs = {
-  platform: jest.fn(),
-  arch: jest.fn(),
-};
-
-jest.unstable_mockModule('node:os', () => mockedOs);
+vi.mock('node:os', () => mockedOs);
 
 const { getBinaryPath, getDownloadUrl } = await import('./utils');
 
@@ -26,10 +24,10 @@ describe('getDownloadUrl', () => {
   );
 
   beforeEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
-  describe.each(table)('when platform is %p and arch is %p', (os, arch) => {
+  describe.each(table)('when platform is %s and arch is %s', (os, arch) => {
     beforeEach(() => {
       mockedOs.platform.mockReturnValue(os);
       mockedOs.arch.mockReturnValue(arch);
@@ -64,9 +62,9 @@ describe('getDownloadUrl', () => {
 });
 
 describe('getBinaryPath', () => {
-  describe.each(platforms)('when platform is %p', (os) => {
+  describe.each(platforms)('when platform is %s', (os) => {
     beforeEach(() => {
-      jest.clearAllMocks();
+      vi.clearAllMocks();
       mockedOs.platform.mockReturnValue(os);
     });
 

@@ -15,7 +15,7 @@ Specialize in developing GitHub Actions with clear, DRY, understandable code.
     - @actions/exec 3 (executes cross-platform tools)
     - @actions/tool-cache 4 (downloads and caches tools)
   - TypeScript 6 (strict mode)
-  - @vercel/ncc 0.38 (build tool)
+  - @vercel/ncc 0.44 (build tool)
   - Node.js 24 (runtime used to execute the code)
 - **File Structure:**
   - `action.yml` (action metadata)
@@ -27,7 +27,7 @@ Specialize in developing GitHub Actions with clear, DRY, understandable code.
 - **Build:** `npm run build` (compiles a Node.js module into a single file with ncc, outputs to `dist/index.js`)
 - **Lint:** `npm run lint:fix` (auto-fixes ESLint errors)
 - **Type check:** `npm run lint:tsc` (checks TypeScript for errors)
-- **Test:** `npm run test:ci` (runs Jest unit tests, must pass with 100% coverage before commits)
+- **Test:** `npm run test:ci` (runs Vitest unit tests, must pass with 100% coverage before commits)
 
 ## Standards
 

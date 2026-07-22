@@ -1,32 +1,30 @@
-import { jest } from '@jest/globals';
+const mockedCore = vi.hoisted(() => ({
+  addPath: vi.fn<typeof import('@actions/core').addPath>(),
+  getInput: vi.fn<typeof import('@actions/core').getInput>(),
+  setFailed: vi.fn<typeof import('@actions/core').setFailed>(),
+}));
 
-const mockedCore = {
-  addPath: jest.fn<typeof import('@actions/core').addPath>(),
-  getInput: jest.fn<typeof import('@actions/core').getInput>(),
-  setFailed: jest.fn<typeof import('@actions/core').setFailed>(),
-};
+const mockedExec = vi.hoisted(() => ({
+  exec: vi.fn<typeof import('@actions/exec').exec>(),
+}));
 
-const mockedExec = {
-  exec: jest.fn<typeof import('@actions/exec').exec>(),
-};
+const mockedTc = vi.hoisted(() => ({
+  cacheFile: vi.fn<typeof import('@actions/tool-cache').cacheFile>(),
+  downloadTool: vi.fn<typeof import('@actions/tool-cache').downloadTool>(),
+  extractZip: vi.fn<typeof import('@actions/tool-cache').extractZip>(),
+  find: vi.fn<typeof import('@actions/tool-cache').find>(),
+}));
 
-const mockedTc = {
-  cacheFile: jest.fn<typeof import('@actions/tool-cache').cacheFile>(),
-  downloadTool: jest.fn<typeof import('@actions/tool-cache').downloadTool>(),
-  extractZip: jest.fn<typeof import('@actions/tool-cache').extractZip>(),
-  find: jest.fn<typeof import('@actions/tool-cache').find>(),
-};
+const mockedOs = vi.hoisted(() => ({
+  platform: vi.fn<typeof import('node:os').platform>(),
+  arch: vi.fn<typeof import('node:os').arch>(),
+}));
 
-const mockedOs = {
-  platform: jest.fn<typeof import('node:os').platform>(),
-  arch: jest.fn<typeof import('node:os').arch>(),
-};
+vi.mock('@actions/core', () => mockedCore);
+vi.mock('@actions/exec', () => mockedExec);
+vi.mock('@actions/tool-cache', () => mockedTc);
 
-jest.unstable_mockModule('@actions/core', () => mockedCore);
-jest.unstable_mockModule('@actions/exec', () => mockedExec);
-jest.unstable_mockModule('@actions/tool-cache', () => mockedTc);
-
-jest.unstable_mockModule('node:os', () => mockedOs);
+vi.mock('node:os', () => mockedOs);
 
 const { run } = await import('.');
 
@@ -41,10 +39,10 @@ const path = {
 const platforms = ['darwin', 'linux', 'win32'] as const;
 
 afterEach(() => {
-  jest.clearAllMocks();
+  vi.clearAllMocks();
 });
 
-describe.each(platforms)('platform is %p', (platform) => {
+describe.each(platforms)('platform is %s', (platform) => {
   beforeEach(() => {
     mockedOs.platform.mockReturnValue(platform);
     mockedOs.arch.mockReturnValue('x64');
