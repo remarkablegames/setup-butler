@@ -27,7 +27,7 @@
     "@eslint/js": "10.0.1",
     "@types/node": "26.6.5",
     "@vercel/ncc": "^0.45.0",
-    "@vitest/coverage-v8": "5.0.4",
+    "@vitest/coverage-v8": "5.0.5",
     "eslint": "10.13.0",
     "eslint-plugin-prettier": "5.5.7",
     "eslint-plugin-simple-import-sort": "14.0.0",
@@ -38,7 +38,7 @@
     "prettier": "3.9.10",
     "typescript": "6.0.3",
     "typescript-eslint": "8.71.2",
-    "vitest": "5.0.4"
+    "vitest": "5.0.5"
   },
   "private": true,
   "license": "MIT"
